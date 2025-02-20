@@ -1,0 +1,46 @@
+\documentclass[a4paper,oneside,12pt]{report}
+% Alternative Options:
+%	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Base Font Size: 10pt / 11pt / 12pt
+
+
+\input{inc/options.tex}
+\begin{document}
+\hypersetup{pageanchor=false} 
+\pagenumbering{gobble}
+\pagestyle{empty} %No headings for the first pages.
+
+\input{inc/title.tex}
+
+\pagenumbering{arabic}
+\setcounter{page}{3}
+%\addcontentsline{toc}{section}{Contents}
+
+\pagestyle{plain}
+\tableofcontents %Table of contents
+%\cleardoublepage %The first chapter should start on an odd page.
+
+\hypersetup{pageanchor=true} 
+
+\newpage
+\pagestyle{plain} %Now display headings: headings / fancy / ...
+%\pagenumbering{roman}
+
+% \input{intro} 
+
+
+% \input{chapter-1}
+% \input{chapter-2}
+% \input{chapter-3}
+
+
+%% APPENDICES
+\appendix
+% \input{appendix}
+
+\input{inc/biblio.tex}
+
+%\includepdf[pages=-, pagecommand={}]{external.pdf} 
+
+\end{document}
