@@ -35,12 +35,8 @@
 % \input{chapter-3}
 
 
-%% APPENDICES
-\appendix
-% \input{appendix}
 
 %\input{inc/biblio.tex}
-%\newpage
 %% BIBLIOGRAPHY AND OTHER LISTS
 
 %% A small distance to the other stuff in the table of contents (toc)
@@ -54,6 +50,14 @@
 %\addcontentsline{toc}{section}{Literatura a~zdroje} %'Bibliography' into toc
 
 %\includepdf[pages=-, pagecommand={}]{external.pdf} 
-\printbibliography
+\newpage
+\renewcommand{\bibsetup}{}
+\section*{Zdroje a literatura}
+\addcontentsline{toc}{section}{Zdroje a literatura}
+\printbibliography[heading=none] 
+
+%% APPENDICES
+% \appendix
+% \input{appendix}
 
 \end{document}

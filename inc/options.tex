@@ -109,7 +109,9 @@
 						%citecolor=[RGB]{255 0 255}
 						citecolor=[RGB]{0 0 188}
 }
-\usepackage[hyphenbreaks]{breakurl}
+% \usepackage[hyphenbreaks]{breakurl}
+\usepackage{hyperref}
+
 \usepackage{hyperxmp}
 
 %\usepackage[pdftex]{hyperref}
@@ -123,6 +125,14 @@
 \usepackage{url}
 
 \usepackage[style=footnote-dw, backend=biber, giveninits=false]{biblatex}
+
+
+% \DefineBibliographyStrings{czech}{%
+%   bibliography = {Zdroje a literatura}
+% }
+
+% \renewcommand{\refname}{Zdroje a literatura} % Pro články (article class)
+
 
 \addbibresource{inc/literatura.bib}
 
@@ -139,19 +149,19 @@
   \addperiod
 }
 
-\renewbibmacro*{finentry}{%
-  \printfield{labelprefix}%
-  \printfield{usera}%
-  \printfield{userb}%
-  \printfield{userc}%
-  \printfield{doi}%
-  \printfield{isbn}%
-  \printlist{location}% Zobrazení místa vydání
-  \setunit{\addcomma\space}%
-  \printfield{year}% Zobrazení roku
-  \setunit{\addperiod\space}%
-  \printfield{note}% Zobrazení pole "note" až na konci
-  \finentry}
+% \renewbibmacro*{finentry}{%
+%   \printfield{labelprefix}%
+%   \printfield{usera}%
+%   \printfield{userb}%
+%   \printfield{userc}%
+% %   \printfield{doi}%
+%   \printfield{isbn}%
+% %   \printlist{location}% Zobrazení místa vydání
+% %   \setunit{\addcomma\space}%
+% %   \printfield{year}% Zobrazení roku
+% %   \setunit{\addperiod\space}%
+% %   \printfield{note}% Zobrazení pole "note" až na konci
+%   \finentry}
 
 
 
@@ -168,6 +178,21 @@
   }
   \finentry
 }
+
+% \renewbibmacro*{bib:entry}{%
+%   \usebibmacro{bib:author}% Autor
+%   \setunit{\addspace}%
+%   \usebibmacro{bib:title}% Název
+%   \setunit{\addspace}%
+%   \printlist{publisher}% Nakladatel
+%   \setunit{\addcomma\space}%
+%   \printlist{location}% Město
+%   \setunit{\addcomma\space}%
+%   \printdate% Rok
+%   \setunit{\addperiod\space}%
+%   \printfield{note}% Note se zobrazí až nakonec
+%   \finentry
+% }
 
 
 
