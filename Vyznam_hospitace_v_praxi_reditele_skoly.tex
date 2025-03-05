@@ -39,8 +39,21 @@
 \appendix
 % \input{appendix}
 
-\input{inc/biblio.tex}
+%\input{inc/biblio.tex}
+%\newpage
+%% BIBLIOGRAPHY AND OTHER LISTS
+
+%% A small distance to the other stuff in the table of contents (toc)
+%\addtocontents{toc}{\protect\vspace*{\baselineskip}}
+
+%\raggedright
+%\sloppy
+
+%% The Bibliography
+%\begin{thebibliography}{99}
+%\addcontentsline{toc}{section}{Literatura a~zdroje} %'Bibliography' into toc
 
 %\includepdf[pages=-, pagecommand={}]{external.pdf} 
+\printbibliography
 
 \end{document}

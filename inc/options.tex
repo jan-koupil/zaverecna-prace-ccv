@@ -4,8 +4,10 @@
 % %\usepackage[ansinew]{inputenc}
 % \usepackage[utf8]{inputenc}
 
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{csquotes}
 
 \usepackage{lmodern} %Type1-font for non-english texts and characters
 										 %together with inputenc help pdf find ligatures like fi
@@ -119,6 +121,56 @@
 % %\usepackage{commath} //kvuli derivacim, resi physics
 
 \usepackage{url}
+
+\usepackage[style=footnote-dw, backend=biber, giveninits=false]{biblatex}
+
+\addbibresource{inc/literatura.bib}
+
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}} % Příjmení kapitálkami
+\renewcommand*{\mkbibnamegiven}[1]{#1}           % Křestní jména normálně
+
+\renewcommand*{\multinamedelim}{. }
+\renewcommand*{\finalnamedelim}{. }
+
+\renewbibmacro*{cite:name}{%
+  \def\multinamedelim{\addperiod\space}% Mezi více autory bude tečka a mezera
+  \def\finalnamedelim{\addperiod\space}% Mezi posledním a předposledním autorem bude tečka a mezera
+  \printnames[family-given]{author}%
+  \addperiod
+}
+
+\renewbibmacro*{finentry}{%
+  \printfield{labelprefix}%
+  \printfield{usera}%
+  \printfield{userb}%
+  \printfield{userc}%
+  \printfield{doi}%
+  \printfield{isbn}%
+  \printlist{location}% Zobrazení místa vydání
+  \setunit{\addcomma\space}%
+  \printfield{year}% Zobrazení roku
+  \setunit{\addperiod\space}%
+  \printfield{note}% Zobrazení pole "note" až na konci
+  \finentry}
+
+
+
+% \renewbibmacro*{footcite:note}{}
+\newbibmacro*{footcite:isbn}{}
+
+\renewbibmacro*{cite}{%
+  \usebibmacro{cite:name}% Zobrazí autora
+  \setunit{\addspace}%
+  \printfield{title}% Zobrazí název
+  \setunit{\addperiod\space}%
+  \iffieldundef{pages}{}{%
+    \addspace\lowercase{s.}~\printfield{pages} % Explicitně vynutíme malé "s."
+  }
+  \finentry
+}
+
+
+
 % \usepackage{siunitx} %jednotky SI
 % \sisetup{locale = US}
 % \DeclareSIUnit\clight{\textit{c}}
