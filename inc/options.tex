@@ -136,6 +136,12 @@
 
 \addbibresource{inc/literatura.bib}
 
+\renewbibmacro*{cite:title}{%
+  \mkbibemph{\printfield{title}}%
+}
+
+\DeclareFieldFormat{title}{\mkbibemph{#1}}
+
 \renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}} % Příjmení kapitálkami
 \renewcommand*{\mkbibnamegiven}[1]{#1}           % Křestní jména normálně
 
@@ -148,6 +154,8 @@
   \printnames[family-given]{author}%
   \addperiod
 }
+
+
 
 % \renewbibmacro*{finentry}{%
 %   \printfield{labelprefix}%
@@ -172,11 +180,11 @@
   \usebibmacro{cite:name}% Zobrazí autora
   \setunit{\addspace}%
   \printfield{title}% Zobrazí název
-  \setunit{\addperiod\space}%
-  \iffieldundef{pages}{}{%
-    \addspace\lowercase{s.}~\printfield{pages} % Explicitně vynutíme malé "s."
-  }
-  \finentry
+  % \setunit{\addperiod\space}%
+  % \iffieldundef{pages}{}{%
+  %   \addspace~\lowercase{s.}~\printfield{pages} % Explicitně vynutíme malé "s."
+  % }
+  % \finentry
 }
 
 % \renewbibmacro*{bib:entry}{%
