@@ -24,12 +24,15 @@
 
 \usepackage[all]{nowidow}
 
-\usepackage[hyphens]{url}
+% \usepackage[hyphens]{url}
+% \usepackage{url}
+% \UrlBreaks{\do\/\do-\do_}
 \usepackage{pdfpages}
 
 \usepackage[unicode,
 %						 pdftex,
-						pdfpagelabels%,
+						pdfpagelabels,
+            breaklinks
 						]{hyperref}
 \hypersetup{
             pdfauthor={Jan Koupil},
@@ -49,8 +52,7 @@
 						%citecolor=[RGB]{255 0 255}
 						citecolor=[RGB]{0 0 188}
 }
-\usepackage{hyperref}
-
+\usepackage{xurl}
 \usepackage{hyperxmp}
 
 						
